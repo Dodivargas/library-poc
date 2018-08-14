@@ -1,18 +1,18 @@
-package br.com.dodivargas.livroservice.dto;
+package br.com.dodivargas.livroservice.output;
 
-public class Livro {
+public class LivroOutput {
 
-    private String id;
+    private Integer id;
     private String titulo;
     private String genero;
     private String autor;
     private Integer quantidade;
 
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -50,7 +50,7 @@ public class Livro {
 
     @Override
     public String toString() {
-        return "LivroEntity{" +
+        return "output{" +
                 "id=" + id +
                 ", titulo='" + titulo + '\'' +
                 ", genero='" + genero + '\'' +

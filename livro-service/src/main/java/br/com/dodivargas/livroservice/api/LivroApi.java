@@ -1,6 +1,7 @@
 package br.com.dodivargas.livroservice.api;
 
-import br.com.dodivargas.livroservice.dto.Livro;
+import br.com.dodivargas.livroservice.output.LivroOutput;
+import br.com.dodivargas.livroservice.output.mapper.LivroOutputMapper;
 import br.com.dodivargas.livroservice.service.LivroService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,10 +21,7 @@ public class LivroApi {
     }
 
     @GetMapping(value = "/{id}")
-    public Livro getLivro(@PathVariable Integer id) {
-        Livro livro = new Livro();
-        livro.setGenero("Daleo");
-        return livro;
+    public LivroOutput getLivro(@PathVariable String id) {
+        return LivroOutputMapper.map(livroService.getLivro(id));
     }
-
 }

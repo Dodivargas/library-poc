@@ -7,18 +7,19 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class LivroEntity {
 
     @Id
-    private Integer id;
+    private String id;
+
     private String titulo;
     private String genero;
     private String autor;
     private Integer quantidade;
 
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 

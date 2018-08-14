@@ -1,6 +1,6 @@
 package br.com.dodivargas.livroservice.repository;
 
-import br.com.dodivargas.livroservice.dto.Livro;
+import br.com.dodivargas.livroservice.entity.LivroEntity;
 import org.springframework.data.mongodb.core.MongoTemplate;
 
 public class MongoRepository {
@@ -11,9 +11,7 @@ public class MongoRepository {
         this.mongoTemplate = mongoTemplate;
     }
 
-    public void insert() {
-        mongoTemplate.insert(new Livro());
+    public LivroEntity findById(String id) {
+        return mongoTemplate.findById(id, LivroEntity.class);
     }
-
-
 }
