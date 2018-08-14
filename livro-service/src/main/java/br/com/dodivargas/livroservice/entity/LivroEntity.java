@@ -1,12 +1,18 @@
-package br.com.dodivargas.livroservice.dto;
+package br.com.dodivargas.livroservice.entity;
 
-public class Livro {
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
+@Document(collection = "livro")
+public class LivroEntity {
+
+    @Id
     private Integer id;
     private String titulo;
     private String genero;
     private String autor;
     private Integer quantidade;
+
 
     public Integer getId() {
         return id;
@@ -49,6 +55,7 @@ public class Livro {
     }
 
     @Override
+
     public String toString() {
         return "LivroEntity{" +
                 "id=" + id +
