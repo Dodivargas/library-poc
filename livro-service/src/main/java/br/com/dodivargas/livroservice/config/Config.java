@@ -14,7 +14,7 @@ public class Config {
 
     @Bean
     public LivroService livroService() {
-        return new LivroService();
+        return new LivroService(mongoRepository());
     }
 
     @Bean
@@ -24,7 +24,7 @@ public class Config {
 
     @Bean
     public MongoDbFactory mongoDbFactory() {
-        return new SimpleMongoDbFactory(new MongoClient(), "livro");
+        return new SimpleMongoDbFactory(new MongoClient(), "Livro");
     }
 
     @Bean

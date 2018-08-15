@@ -1,6 +1,6 @@
-package br.com.dodivargas.livroservice.output;
+package br.com.dodivargas.livroservice.input;
 
-public class LivroOutput {
+public class LivroInput {
 
     private String id;
     private String titulo;
@@ -50,7 +50,7 @@ public class LivroOutput {
 
     @Override
     public String toString() {
-        return "output{" +
+        return "LivroInput{" +
                 "id=" + id +
                 ", titulo='" + titulo + '\'' +
                 ", genero='" + genero + '\'' +
