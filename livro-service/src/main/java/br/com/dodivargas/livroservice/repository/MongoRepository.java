@@ -28,4 +28,9 @@ public class MongoRepository {
     public void insert(LivroEntity livroEntity) {
         mongoTemplate.insert(livroEntity);
     }
+
+    public void delete(LivroEntity livroEntity) {
+        mongoTemplate.remove(livroEntity);
+    }
+
 }

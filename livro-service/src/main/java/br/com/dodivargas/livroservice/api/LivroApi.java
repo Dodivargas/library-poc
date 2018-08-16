@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/livros")
@@ -27,13 +28,18 @@ public class LivroApi {
     }
 
     @GetMapping
-    public List<LivroOutput> getLivros(){
-    return null;
+    public List<LivroOutput> getLivros() {
+        return livroService.getLivros().stream().map(LivroOutputMapper::map).collect(Collectors.toList());
     }
 
     @PostMapping
-    public void insertLivro(@RequestBody LivroInput livroInput) {
+    public void insert(@RequestBody LivroInput livroInput) {
         livroService.insert(LivroMapper.map(livroInput));
+    }
+
+    @DeleteMapping
+    public void delete(@RequestBody LivroInput livroInput) {
+        livroService.delete(LivroMapper.map(livroInput));
     }
 
 }
