@@ -2,14 +2,15 @@ package br.com.dodivargas.livroservice.api;
 
 import br.com.dodivargas.livroservice.input.LivroInput;
 import br.com.dodivargas.livroservice.mapper.LivroMapper;
-import br.com.dodivargas.livroservice.output.LivroOutput;
 import br.com.dodivargas.livroservice.output.mapper.LivroOutputMapper;
 import br.com.dodivargas.livroservice.service.LivroService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 import java.util.stream.Collectors;
+
+import static org.springframework.http.ResponseEntity.ok;
 
 @RestController
 @RequestMapping("/livros")
@@ -23,13 +24,13 @@ public class LivroApi {
     }
 
     @GetMapping(value = "/{id}")
-    public LivroOutput getLivro(@PathVariable String id) {
-        return LivroOutputMapper.map(livroService.get(id));
+    public ResponseEntity<?> getLivro(@PathVariable String id) {
+        return ok(LivroOutputMapper.map(livroService.get(id)));
     }
 
     @GetMapping
-    public List<LivroOutput> getLivros() {
-        return livroService.getLivros().stream().map(LivroOutputMapper::map).collect(Collectors.toList());
+    public ResponseEntity<?> getLivros() {
+        return ok(livroService.getLivros().stream().map(LivroOutputMapper::map).collect(Collectors.toList()));
     }
 
     @PostMapping

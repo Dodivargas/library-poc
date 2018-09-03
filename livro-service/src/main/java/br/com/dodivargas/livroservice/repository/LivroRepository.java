@@ -8,12 +8,12 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public class MongoRepository {
+public class LivroRepository {
 
     private MongoTemplate mongoTemplate;
 
     @Autowired
-    public MongoRepository(MongoTemplate mongoTemplate) {
+    public LivroRepository(MongoTemplate mongoTemplate) {
         this.mongoTemplate = mongoTemplate;
     }
 

@@ -1,6 +1,6 @@
 package br.com.dodivargas.livroservice.config;
 
-import br.com.dodivargas.livroservice.repository.MongoRepository;
+import br.com.dodivargas.livroservice.repository.LivroRepository;
 import br.com.dodivargas.livroservice.service.LivroService;
 import com.mongodb.MongoClient;
 import org.springframework.context.annotation.Bean;
@@ -18,8 +18,8 @@ public class Config {
     }
 
     @Bean
-    public MongoRepository mongoRepository() {
-        return new MongoRepository(mongoTemplate());
+    public LivroRepository mongoRepository() {
+        return new LivroRepository(mongoTemplate());
     }
 
     @Bean
